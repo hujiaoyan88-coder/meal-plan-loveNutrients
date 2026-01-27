@@ -1,0 +1,176 @@
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+h1, p{
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.tabs {
+  flex: 0 0 40px;
+  display: flex;
+  gap: 8px;
+}
+
+.meals {
+  flex: 0 0 200px;
+  display: flex;
+  gap: 16px;
+}
+
+
+.tab {
+  flex: 1;
+  padding: 0;
+  border-radius: 6px;
+  border: none;
+  background: #4caf50;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  height: 100%;
+}
+
+.content {
+  display: none;
+}
+
+.content.active {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+
+.tab.active {
+  background: #2e7d32;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.reset {
+  background: #fff;
+}
+
+.eat {
+  background: #e8f5e9;
+}
+
+.meal-card {
+  flex: 1;
+  background: #fff;
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.form {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+}
+
+.form input {
+  height: 44px;
+  font-size: 16px;
+  padding: 0 12px;
+}
+
+#count{
+  width: 44px;
+}
+
+.form button {
+  height: 44px;
+  font-size: 16px;
+  padding: 0 20px;
+}
+
+
+.meal-area {
+  flex: 1;              /* ← 残り全部使う */
+  display: flex;
+  gap: 16px;
+  min-height: 0;
+}
+
+
+.fridge, .freezer {
+  position: relative;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  padding: 8px;
+  overflow-y: auto;
+
+  background: #fff;
+  border: 1px solid #2196f3;
+  min-height: 200px;
+}
+
+/* 背景ラベル用 */
+.label {
+  position: absolute;          /* カードの背後に固定 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  font-size: 200px;             /* 大きくして背景感を演出 */
+  color: rgba(33, 150, 243, 0.1); /* 薄くして透け感 */
+  font-weight: bold;
+  pointer-events: none;        /* 下のカード操作を邪魔しない */
+  text-align: center;
+  white-space: nowrap;         /* 改行を防ぐ */
+  z-index: 0;                  /* カードの下に配置 */
+}
+
+.food-card {
+  background: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-weight: bold;
+  width: 380px;
+  height: 30px;
+}
+
+.meal-list {
+  height: 180px;          
+  border: 2px dashed #ccc;  /* 見えるように */
+  padding: 8px;
+  margin-top: 8px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  list-style: none;
+  height: 300px;
+}
