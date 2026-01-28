@@ -9,59 +9,81 @@
 <body>
 
 <div class="wrapper">
-  <div class="tabs">
-    <button class="tab active" data-day="sun">日</button>
-    <button class="tab" data-day="mon">月</button>
-    <button class="tab" data-day="tue">火</button>
-    <button class="tab" data-day="wed">水</button>
-    <button class="tab" data-day="thu">木</button>
-    <button class="tab" data-day="fri">金</button>
-    <button class="tab" data-day="sat">土</button>
+  <div class="sidemenu">
+    <div class="menu active" data-menu="howto">使い方</div>
+    <div class="menu" data-menu="plan">献立表</div>
+    <div class="menu" data-menu="make">料理作成</div>
   </div>
+  <div class="main">
+    <div class="container active" id="howto">
+      <h1>使い方</h1>
+      <p>1 料理名を入力します。<br>
+      2 料理数を入力します。<br>
+      3 冷蔵庫or冷凍庫ボタンを押します。<br>
+      4 料理カードができます。<br>
+      5 料理カードを朝・昼・夕の枠にドラッグ＆ドロップします。<br>
+      6 曜日タブで曜日を変えられます。</p>
+    
+    </div>
+      <div class="container" id="plan">
+        <div class="tabs">
+          <button class="tab active" data-day="sun">日</button>
+          <button class="tab" data-day="mon">月</button>
+          <button class="tab" data-day="tue">火</button>
+          <button class="tab" data-day="wed">水</button>
+          <button class="tab" data-day="thu">木</button>
+          <button class="tab" data-day="fri">金</button>
+          <button class="tab" data-day="sat">土</button>
+        </div>
 
 
-  <div class="contents">
-    <div class="content active" id="sun">
-      <div class="meals"></div>
-    </div>
-    <div class="content" id="mon">
-      <div class="meals"></div>
-    </div>
-    <div class="content" id="tue">
-      <div class="meals"></div>
-    </div>
-    <div class="content" id="wed">
-      <div class="meals"></div>
-    </div>
-    <div class="content" id="thu">
-      <div class="meals"></div>
-    </div>
-    <div class="content" id="fri">
-      <div class="meals"></div>
-    </div>
-    <div class="content" id="sat">
-      <div class="meals"></div>
-    </div>
-  </div>
+        <div class="contents">
+          <div class="content active" id="sun">
+            <div class="meals"></div>
+          </div>
+          <div class="content" id="mon">
+            <div class="meals"></div>
+          </div>
+          <div class="content" id="tue">
+            <div class="meals"></div>
+          </div>
+          <div class="content" id="wed">
+            <div class="meals"></div>
+          </div>
+          <div class="content" id="thu">
+            <div class="meals"></div>
+          </div>
+          <div class="content" id="fri">
+            <div class="meals"></div>
+          </div>
+          <div class="content" id="sat">
+            <div class="meals"></div>
+          </div>
+        </div>
+      </div>
+
+    <div class="container" id="make">料理作成</div>
+   
 
 
-  <div class="form">
-    <input type="text" id="foodName" placeholder="料理名">
-    <input type="number" id="count" min="1" value="1">
-    <button class="addBtn" data-target="fridge">冷蔵庫</button>
-    <button class="addBtn" data-target="freezer">冷凍庫</button>
-  </div>
 
-  <div class="meal-area" id="mealArea">
-    <div class="fridge" id="fridge">
-      <div class="label">冷蔵庫</div>
+      <div class="form">
+        <input type="text" id="foodName" placeholder="料理名">
+        <input type="number" id="count" min="1" value="1">
+        <button class="addBtn" data-target="fridge">冷蔵庫</button>
+        <button class="addBtn" data-target="freezer">冷凍庫</button>
+      </div>
+
+      <div class="meal-area" id="mealArea">
+        <div class="fridge" id="fridge">
+          <div class="label">冷蔵庫</div>
+        </div>
+    
+        <div class="freezer" id="freezer">
+          <div class="label">冷凍庫</div>
+        </div>
+      </div>
     </div>
- 
-    <div class="freezer" id="freezer">
-      <div class="label">冷凍庫</div>
-    </div>
-  </div>
-  
 </div>
 
 
