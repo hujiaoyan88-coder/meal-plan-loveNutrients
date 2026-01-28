@@ -118,11 +118,37 @@ document.querySelectorAll(".meal-list").forEach(list => {
 
     const mealType = list.dataset.meal;
 
+      // 元の配列を取得
+  let originArray;
+   // mealsのどの配列にいるかを探す
+  let foundInMeals = false;
+  for (let meal of ["朝", "昼", "夕"]) {
+    if (appData.meals[currentDay][meal].includes(draggedCard)) {
+      originArray = appData.meals[currentDay][meal];
+      foundInMeals = true;
+      break;
+    }
+  }
+
+  if (!foundInMeals) {
+    // fridge or freezer
+    originArray = appData[draggedCard.origin];
+  }
+
+  // 元の配列から削除
+  const index = originArray.indexOf(draggedCard);
+  if (index !== -1) originArray.splice(index, 1);
+
     // meals に追加
+    const currentCount = appData.meals[currentDay][mealType].length;
+if (currentCount >= 6) {
+  alert("これ以上追加できません（最大6枚まで）");
+  draggedCard = null;
+  return;
+}
     appData.meals[currentDay][mealType].push(draggedCard);
 
-    // 元の場所から削除
-    appData[draggedCard.origin] = appData[draggedCard.origin].filter(f => f !== draggedCard);
+    draggedCard.origin = mealType;
 
     draggedCard = null;
     saveData();
@@ -188,7 +214,7 @@ function renderAll() {
     const mealType = list.dataset.meal;
     list.innerHTML = "";
 
-    appData.meals[currentDay][mealType].forEach(food => {
+    appData.meals[currentDay][mealType].slice(0, 6).forEach(food => {
       const card = createFoodCard(food);
       list.appendChild(card);
     });
