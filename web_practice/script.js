@@ -1,5 +1,6 @@
 let draggedCard = null;
 let currentDay = "sun"; // 初期表示は日曜
+let firstmenu = "howto";
 
 // ===== データ =====
 const appData = {
@@ -32,6 +33,26 @@ tabs.forEach(tab => {
     renderAll();
   });
 });
+
+const menus = document.querySelectorAll(".menu");
+const containers = document.querySelectorAll(".container");
+
+menus.forEach(menu => {
+  menu.addEventListener("click", () => {
+    // active 全解除
+    menus.forEach(m => m.classList.remove("active"));
+    containers.forEach(c => c.classList.remove("active"));
+
+    // クリックしたメニューを active
+    menu.classList.add("active");
+
+    // 対応するコンテンツ表示
+    const target = menu.dataset.menu;
+    document.getElementById(target).classList.add("active");
+  });
+});
+
+
 
 // ===== 食材追加 =====
 const foodInput = document.getElementById("foodName");
