@@ -188,9 +188,11 @@ h1, p{
 
 .meal-list {
   height: 180px;          
-  border: 2px dashed #ccc;  /* 見えるように */
+  border: 2px dashed #ccc;
   padding: 8px;
   margin-top: 8px;
+  align-items: flex-start;
+  align-content: flex-start; 
 
   display: flex;
   flex-wrap: wrap;
